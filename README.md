@@ -2,6 +2,12 @@
 
 Este repositório contém informações e análises detalhadas sobre a arquitetura do Twitter. O objetivo deste trabalho é fornecer uma visão geral abrangente da infraestrutura, tecnologias e desafios enfrentados pelo Twitter em sua busca para fornecer uma plataforma de mídia social escalável e confiável para bilhões de usuários em todo o mundo.
 
+## Integrantes
+- [Frederico dos Santos](https://www.ofrederico.com)
+- [Gabriel de Souza](https://www.gabrieldesouza.com)
+- [Gabriel Lima de Souza](https://www.gabriellimadesouza.com)
+- [Nikolas Louret](https://www.nikolaslouret.com)
+
 ## Sumário
 
 -   [Twitter Architecture Analysis](#twitter-architecture-analysis)
@@ -71,4 +77,4 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
 
-_Nota: Este trabalho é apenas para fins educacionais e não tem nenhuma afiliação oficial com o Twitter, Inc._
+_Nota: Este trabalho é apenas para fins educacionais_
