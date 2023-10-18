@@ -28,6 +28,24 @@ O Twitter é uma das redes sociais mais populares do mundo, com centenas de milh
 
 Este trabalho explora essa arquitetura em detalhes, destacando seus principais componentes, os desafios técnicos enfrentados pela empresa e como ela lida com questões de escalabilidade e segurança.
 
+## Características do Sistema
+
+1. **Número de clientes**
+
+O Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
+
+2. **Segmentação Geográfica**
+
+Olhando para a segmentação geográfica da plataforma, o Estados Unidos domina o topo da lista com 23,69% do trafégo de dados realizado, em segundo lugar vem o Japão com 16,43%, seguido por Reino Unido com 5,67%, Brasil com 3,94% e Espanha com 3,23% do total. 
+
+3. **Dados Demográficos do Público**
+
+Ao examinarmos a composição do público do Twitter, observamos:
+
+    - 66,55% do público é do genêro masculino e 33,45% do gênero feminino
+    - 58,27% dos usuários tem de 18 a 34 anos de idade
+    - A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
+
 ## Arquitetura em Alto Nível
 
 A arquitetura do Twitter é composta por vários componentes interconectados que trabalham juntos para fornecer serviços de mídia social aos usuários. Em um alto nível, a arquitetura pode ser dividida em várias camadas:
@@ -76,5 +94,6 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
 ## Referências
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
+-   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
 
 _Nota: Este trabalho é apenas para fins educacionais_
