@@ -31,6 +31,8 @@ Este trabalho explora essa arquitetura em detalhes, destacando seus principais c
 
 ## Características do Sistema
 
+Esta seção destaca características do Twitter que impactam em sua construção e arquitetura
+
 1. **Número de clientes**
 
 O Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
@@ -46,6 +48,17 @@ Ao examinarmos a composição do público do Twitter, observamos:
     - 66,55% do público é do genêro masculino e 33,45% do gênero feminino
     - 58,27% dos usuários tem de 18 a 34 anos de idade
     - A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
+
+4. **Requisitos de Segurança**
+
+O Twitter como uma rede social, possui dados e informações pessoais de seus usuários sobre sua responsabilidade, por isso, sua arquitetura deve garantir:
+
+- Criptografia dos dados, para senhas e mensagens diretas dos usuários
+- Monitoramento de conteúdo, para detectar conteúdo malicioso, informações falsas e discurso de ódio
+- Backup e recuperação de dados, para garantir a disponibilidade contínua e redundância dos dados
+- Autenticação forte, para exigir senhas fortes, com o objetivo de impedir senhas comuns
+- Gerenciamento de identidade, para garantir que os usuários alterem e recuperem sua conta
+- Resposta a incidentes, para reagir rapidamente a violações de segurança
 
 ## Arquitetura em Alto Nível
 
@@ -96,5 +109,6 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
 -   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
+-   [Medium](https://medium.com/@karan99/system-design-twitter-793ab06c9355)
 
 _Nota: Este trabalho é apenas para fins educacionais_
