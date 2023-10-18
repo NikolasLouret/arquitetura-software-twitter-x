@@ -13,6 +13,7 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
 -   [Twitter Architecture Analysis](#twitter-architecture-analysis)
     -   [Sumário](#sumário)
     -   [Introdução](#introdução)
+    -   [Características do Sistema](#características-do-sistema)
     -   [Arquitetura em Alto Nível](#arquitetura-em-alto-nível)
     -   [Componentes Principais](#componentes-principais)
     -   [Desafios Técnicos](#desafios-técnicos)
