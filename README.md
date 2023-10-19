@@ -31,9 +31,9 @@ Este trabalho explora essa arquitetura em detalhes, destacando seus principais c
 
 ## Características do Sistema
 
-Esta seção destaca características do Twitter que impactam em sua construção e arquitetura
+Esta seção destaca aspectos que exercem influência significativa na construção e arquitetura do Twitter, tais como o nicho de mercado, volume de clientes e acessos, bem como os requisitos de segurança da aplicação.
 
-1. **Nicho de Mercado**
+#### Nicho de Mercado
    
 O Twitter é uma plataforma única e amplamente reconhecida por sua natureza de microblogging, que permite aos usuários compartilhar pensamentos, notícias, opiniões e informações em mensagens curtas, chamadas de "tweets". 
 
@@ -41,23 +41,23 @@ Uma das principais características do nicho do Twitter é a instantaneidade. A 
 
 A ênfase na instantaneidade e disseminação de informações em tempo real no Twitter requer uma arquitetura distribuída altamente escalável e algoritmos sofisticados de classificação de conteúdo para garantir a entrega rápida e relevância dos tweets.
 
-2. **Número de Clientes**
+#### Número de Clientes
 
 O Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
 
-3. **Segmentação Geográfica**
+#### Segmentação Geográfica
 
 Olhando para a segmentação geográfica da plataforma, o Estados Unidos domina o topo da lista com 23,69% do trafégo de dados realizado, em segundo lugar vem o Japão com 16,43%, seguido por Reino Unido com 5,67%, Brasil com 3,94% e Espanha com 3,23% do total. 
 
-4. **Dados Demográficos do Público**
+#### Dados Demográficos do Público
 
 Ao examinarmos a composição do público do Twitter, observamos:
 
-    - 66,55% do público é do genêro masculino e 33,45% do gênero feminino
-    - 58,27% dos usuários tem de 18 a 34 anos de idade
-    - A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
+- 66,55% do público é do genêro masculino e 33,45% do gênero feminino
+- 58,27% dos usuários tem de 18 a 34 anos de idade
+- A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
 
-5. **Requisitos de Segurança**
+#### **Requisitos de Segurança**
 
 O Twitter como uma rede social, possui dados e informações pessoais de seus usuários sobre sua responsabilidade, por isso, sua arquitetura deve garantir:
 
