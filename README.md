@@ -28,6 +28,8 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
     -   [Arquitetura em Alto Nível](#arquitetura-em-alto-nível)
     -   [Tecnologias e Componentes Principais](#tecnologias-e-componentes-principais)
     -   [Requisitos importantes](#requisitos-importantes)
+        -   [Escalabilidade:](#escalabilidade)
+        -   [Segurança e privacidade:](#segurança-e-privacidade)
     -   [Conclusão](#conclusão)
     -   [Referências](#referências)
 
@@ -109,31 +111,31 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 ## Requisitos importantes
 
--   **Escalabilidade:**
+### Escalabilidade:
 
-    O data center inaugural do Twitter foi planejado com base em modelagens dos perfis de capacidade e tráfego do sistema conhecido na época. Ao longo de alguns anos, testemunhou-se uma notável expansão, com os data centers alcançando dimensões 400% maiores que o projeto original. Essa expansão destacou uma mudança substancial nas suposições iniciais que guiaram os primeiros projetos de rede, evidenciando a necessidade de ajustes contínuos diante da evolução dinâmica das demandas tecnológicas.
+O data center inaugural do Twitter foi planejado com base em modelagens dos perfis de capacidade e tráfego do sistema conhecido na época. Ao longo de alguns anos, testemunhou-se uma notável expansão, com os data centers alcançando dimensões 400% maiores que o projeto original. Essa expansão destacou uma mudança substancial nas suposições iniciais que guiaram os primeiros projetos de rede, evidenciando a necessidade de ajustes contínuos diante da evolução dinâmica das demandas tecnológicas.
 
-    O rápido crescimento do tráfego de dados ressalta a importância de uma arquitetura altamente escalável. Em vez de depender de migrações volumosas e complexas, é crucial construir uma estrutura que permita a adição incremental de capacidade. Isso assegura uma resposta ágil às demandas crescentes, evitando reconfigurações massivas de data centers.
+O rápido crescimento do tráfego de dados ressalta a importância de uma arquitetura altamente escalável. Em vez de depender de migrações volumosas e complexas, é crucial construir uma estrutura que permita a adição incremental de capacidade. Isso assegura uma resposta ágil às demandas crescentes, evitando reconfigurações massivas de data centers.
 
-    O Twitter enfrentou desafios significativos de capacidade e tráfego de dados devido à alta demanda. Inicialmente, a abordagem envolveu dispositivos de rede com buffers de pacotes profundos para lidar com padrões diversos de tráfego. No entanto, essa abordagem inicial resultou em custos elevados e maior complexidade de hardware. Projetos subsequentes adotaram uma abordagem mais equilibrada, utilizando tamanhos de buffer padrão, recursos de comutação _cut-through_[^1], e otimizações na pilha TCP do lado do servidor para enfrentar _microbursts_[^2], grandes quantidades de dados transmitida em um período muito pequeno, de maneira eficiente. Ao longo desse processo, destacaram-se aprendizados valiosos sobre a importância de adaptabilidade e ajustes contínuos diante das mudanças no ambiente tecnológico:
+O Twitter enfrentou desafios significativos de capacidade e tráfego de dados devido à alta demanda. Inicialmente, a abordagem envolveu dispositivos de rede com buffers de pacotes profundos para lidar com padrões diversos de tráfego. No entanto, essa abordagem inicial resultou em custos elevados e maior complexidade de hardware. Projetos subsequentes adotaram uma abordagem mais equilibrada, utilizando tamanhos de buffer padrão, recursos de comutação _cut-through_[^1], e otimizações na pilha TCP do lado do servidor para enfrentar _microbursts_[^2], grandes quantidades de dados transmitida em um período muito pequeno, de maneira eficiente. Ao longo desse processo, destacaram-se aprendizados valiosos sobre a importância de adaptabilidade e ajustes contínuos diante das mudanças no ambiente tecnológico:
 
-    -   **Arquitetar Além das Especificações:** É crucial projetar além das especificações originais e realizar ajustes rápidos e corajosos, especialmente quando o tráfego se aproxima dos limites previstos.
+-   **Arquitetar Além das Especificações:** É crucial projetar além das especificações originais e realizar ajustes rápidos e corajosos, especialmente quando o tráfego se aproxima dos limites previstos.
 
-    -   **Depender de Dados e Métricas:** Tomar decisões de projeto com base em dados e métricas é essencial. Além disso, é fundamental garantir que essas métricas sejam compreensíveis para os operadores de rede, especialmente em ambientes hospedados e em nuvem.
+-   **Depender de Dados e Métricas:** Tomar decisões de projeto com base em dados e métricas é essencial. Além disso, é fundamental garantir que essas métricas sejam compreensíveis para os operadores de rede, especialmente em ambientes hospedados e em nuvem.
 
-    -   **Evitar Soluções Temporárias:** Soluções temporárias frequentemente resultam em dívidas tecnológicas. Em vez disso, buscar abordagens sustentáveis e de longo prazo é crucial para lidar eficazmente com desafios de tráfego e capacidade.
+-   **Evitar Soluções Temporárias:** Soluções temporárias frequentemente resultam em dívidas tecnológicas. Em vez disso, buscar abordagens sustentáveis e de longo prazo é crucial para lidar eficazmente com desafios de tráfego e capacidade.
 
--   **Segurança e privacidade:**
+### Segurança e privacidade:
 
-    Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
+Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
 
-    Em 2018, a opção de utilizar chaves de segurança foi introduzida como parte das opções de 2FA, inicialmente limitada ao [Twitter.com](https://twitter.com) e não disponível no aplicativo móvel. Além disso, exigia que as contas tivessem outra forma de 2FA habilitada.
+Em 2018, a opção de utilizar chaves de segurança foi introduzida como parte das opções de 2FA, inicialmente limitada ao [Twitter.com](https://twitter.com) e não disponível no aplicativo móvel. Além disso, exigia que as contas tivessem outra forma de 2FA habilitada.
 
-    Em 2019, houve uma atualização no suporte de chave de segurança, incorporando o padrão _WebAuthn_ mais recente, proporcionando um método de autenticação seguro e reconhecido em toda a WEB.
+Em 2019, houve uma atualização no suporte de chave de segurança, incorporando o padrão _WebAuthn_ mais recente, proporcionando um método de autenticação seguro e reconhecido em toda a WEB.
 
-    No ano seguinte, em 2020, foram implementadas melhorias adicionais, incluindo o suporte para chaves de segurança em dispositivos móveis. Em 2021, foi adicionada a capacidade de registrar várias chaves de segurança em uma única conta, permitindo chaves de segurança de backup e facilitando a habilitação de 2FA com múltiplas chaves para contas gerenciadas por várias pessoas.
+No ano seguinte, em 2020, foram implementadas melhorias adicionais, incluindo o suporte para chaves de segurança em dispositivos móveis. Em 2021, foi adicionada a capacidade de registrar várias chaves de segurança em uma única conta, permitindo chaves de segurança de backup e facilitando a habilitação de 2FA com múltiplas chaves para contas gerenciadas por várias pessoas.
 
-    Recentemente, a plataforma introduziu a opção de usar chaves de segurança como o único método 2FA, permitindo que os usuários inscrevam uma ou mais chaves como a única forma de 2FA em sua conta do Twitter, sem a necessidade de um método de backup, reconhecendo que nem todos têm ou desejam compartilhar um número de telefone para esse fim.
+Recentemente, a plataforma introduziu a opção de usar chaves de segurança como o único método 2FA, permitindo que os usuários inscrevam uma ou mais chaves como a única forma de 2FA em sua conta do Twitter, sem a necessidade de um método de backup, reconhecendo que nem todos têm ou desejam compartilhar um número de telefone para esse fim.
 
 ## Conclusão
 
