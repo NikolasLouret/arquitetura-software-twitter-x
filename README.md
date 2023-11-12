@@ -20,10 +20,10 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
         -   [Número de Clientes](#número-de-clientes)
         -   [Segmentação Geográfica](#segmentação-geográfica)
         -   [Dados Demográficos do Público](#dados-demográficos-do-público)
-        -   [**Requisitos de Segurança**](#requisitos-de-segurança)
-    -   [Arquitetura em Alto Nível](#arquitetura-em-alto-nível)
-    -   [Componentes Principais](#componentes-principais)
+        -   [Requisitos de Segurança](#requisitos-de-segurança)
     -   [Desafios Técnicos](#desafios-técnicos)
+    -   [Arquitetura em Alto Nível](#arquitetura-em-alto-nível)
+    -   [Tecnologias e Componentes Principais](#tecnologias-e-componentes-principais)
     -   [Requisitos importantes](#requisitos-importantes)
     -   [Conclusão](#conclusão)
     -   [Referências](#referências)
@@ -62,7 +62,7 @@ Ao examinarmos a composição do público do Twitter, observamos:
 -   58,27% dos usuários tem de 18 a 34 anos de idade
 -   A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
 
-#### **Requisitos de Segurança**
+#### Requisitos de Segurança
 
 O Twitter como uma rede social, possui dados e informações pessoais de seus usuários sobre sua responsabilidade, por isso, sua arquitetura deve garantir:
 
@@ -73,25 +73,6 @@ O Twitter como uma rede social, possui dados e informações pessoais de seus us
 -   Gerenciamento de identidade, para garantir que os usuários alterem e recuperem sua conta
 -   Resposta a incidentes, para reagir rapidamente a violações de segurança
 
-## Arquitetura em Alto Nível
-
-A arquitetura do Twitter é composta por vários componentes interconectados que trabalham juntos para fornecer serviços de mídia social aos usuários. Em um alto nível, a arquitetura pode ser dividida em várias camadas:
-
-1. **Camada de Aplicação**: Esta camada inclui a interface do usuário do Twitter, que os usuários finais acessam por meio de aplicativos da web e móveis.
-2. **Camada de Lógica de Negócios**: Aqui, a lógica de negócios do Twitter é implementada, incluindo recursos como publicação de tweets, pesquisa, tendências, e muito mais.
-3. **Camada de Armazenamento**: O Twitter lida com uma enorme quantidade de dados, incluindo tweets, seguidores, curtidas e muito mais. Esta camada inclui diversos sistemas de armazenamento, como bancos de dados distribuídos, caches e sistemas de armazenamento de objetos.
-4. **Camada de Infraestrutura**: A infraestrutura do Twitter engloba data centers em várias regiões geográficas, balanceadores de carga, sistemas de monitoramento e escalonamento automático.
-
-## Componentes Principais
-
-Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
-
--   **Twitter Timeline Service**: Responsável por construir a linha do tempo dos usuários com os tweets relevantes.
--   **FlockDB**: Um banco de dados de gráficos usado para armazenar relacionamentos de seguidores.
--   **Twitter Cache**: Utilizado para armazenar em cache tweets e dados de perfil de usuário.
--   **Twitter Kafka**: Um sistema de mensagens distribuído usado para ingestão e processamento de dados em tempo real.
--   **Twitter Manhattan**: Um sistema de armazenamento de dados distribuído que lida com dados de alto volume e alta taxa de gravação.
-
 ## Desafios Técnicos
 
 O Twitter enfrenta diversos desafios técnicos, incluindo:
@@ -101,6 +82,27 @@ O Twitter enfrenta diversos desafios técnicos, incluindo:
 -   **Consistência**: Manter a consistência dos dados em um ambiente distribuído é um desafio complexo.
 -   **Segurança**: Proteger os dados dos usuários contra ameaças é uma prioridade crítica.
 -   **Conformidade**: Cumprir regulamentos de privacidade de dados em várias regiões geográficas.
+
+## Arquitetura em Alto Nível
+
+A arquitetura do Twitter é composta por vários componentes interconectados que trabalham juntos para fornecer serviços de mídia social aos usuários. Em um alto nível, a arquitetura pode ser dividida em várias camadas:
+
+1. **Camada de Aplicação**: Esta camada inclui a interface do usuário do Twitter, que os usuários finais acessam por meio de aplicativos da web e móveis.
+2. **Camada de Lógica de Negócios**: Aqui, a lógica de negócios do Twitter é implementada, incluindo recursos como publicação de tweets, pesquisa, tendências, e muito mais.
+3. **Camada de Armazenamento**: O Twitter lida com uma enorme quantidade de dados, incluindo tweets, seguidores, curtidas e muito mais. Esta camada inclui diversos sistemas de armazenamento, como bancos de dados distribuídos, caches e sistemas de armazenamento de objetos.
+4. **Camada de Infraestrutura**: A infraestrutura do Twitter engloba data centers em várias regiões geográficas, balanceadores de carga, sistemas de monitoramento e escalonamento automático.
+
+## Tecnologias e Componentes Principais
+
+Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
+
+-   **Manhattan**: O back-end para tweets, mensagens diretas, contas do Twitter e muito mais.
+-   **Cache**: Clusters Redis e Memcache: armazenando em cache os usuários, cronogramas, tweets e muito mais.
+-   **Kafka**: Um sistema de mensagens distribuído usado para ingestão e processamento de dados em tempo real.
+-   **FlockDB**: Banco de dados utilizados para fazer o armazenas os grafos de relacionamentos de seguidores.
+-   **Blobstore**: Armazenamento de imagens, vídeos e arquivos grandes onde são guardados centenas de bilhões de objetos.
+-   **SQL**: Inclui MySQL, PostgreSQL e Vertica. MySQL/PosgreSQL são usados ​​onde é necessário forte consistência, gerenciando campanhas publicitárias, troca de anúncios, bem como ferramentas internas. Vertica é um armazenamento de colunas frequentemente usado como back-end para o Tableau(usados para gerenciamento dos dados).
+-   **Hadoop**: Um framework de computação em nuvem usado para processar grandes conjuntos de dados.
 
 ## Requisitos importantes
 
@@ -132,12 +134,13 @@ O Twitter enfrenta diversos desafios técnicos, incluindo:
 
 ## Conclusão
 
-Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de bilhões de usuários em todo o mundo.
+Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de milhões de usuários em todo o mundo.
 
 ## Referências
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
     -   [The Infrastructure Behind Twitter: Scale](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2017/the-infrastructure-behind-twitter-scale)
+    -   [Manhattan Database for Twitter Scale](https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale)
     -   [Stronger security for your Twitter account](https://blog.twitter.com/en_us/topics/product/2020/stronger-security-for-your-twitter-account)
 -   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
 
