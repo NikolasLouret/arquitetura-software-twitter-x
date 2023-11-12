@@ -26,6 +26,7 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
     -   [Tecnologias e Componentes Principais](#tecnologias-e-componentes-principais)
     -   [Requisitos importantes](#requisitos-importantes)
     -   [Conclusão](#conclusão)
+    -   [Nota de Rodapé](#nota-de-rodapé)
     -   [Referências](#referências)
 
 ## Introdução
@@ -112,7 +113,7 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
     O rápido crescimento do tráfego de dados ressalta a importância de uma arquitetura altamente escalável. Em vez de depender de migrações volumosas e complexas, é crucial construir uma estrutura que permita a adição incremental de capacidade. Isso assegura uma resposta ágil às demandas crescentes, evitando reconfigurações massivas de data centers.
 
-    O Twitter enfrentou desafios significativos de capacidade e tráfego de dados devido à alta demanda. Inicialmente, a abordagem envolveu dispositivos de rede com buffers de pacotes profundos para lidar com padrões diversos de tráfego. No entanto, essa abordagem inicial resultou em custos elevados e maior complexidade de hardware. Projetos subsequentes adotaram uma abordagem mais equilibrada, utilizando tamanhos de buffer padrão, recursos de comutação _cut-through_, e otimizações na pilha TCP do lado do servidor para enfrentar _microbursts_, grandes quantidades de dados transmitida em um período muito pequeno, de maneira eficiente. Ao longo desse processo, destacaram-se aprendizados valiosos sobre a importância de adaptabilidade e ajustes contínuos diante das mudanças no ambiente tecnológico:
+    O Twitter enfrentou desafios significativos de capacidade e tráfego de dados devido à alta demanda. Inicialmente, a abordagem envolveu dispositivos de rede com buffers de pacotes profundos para lidar com padrões diversos de tráfego. No entanto, essa abordagem inicial resultou em custos elevados e maior complexidade de hardware. Projetos subsequentes adotaram uma abordagem mais equilibrada, utilizando tamanhos de buffer padrão, recursos de comutação _cut-through_[^1], e otimizações na pilha TCP do lado do servidor para enfrentar _microbursts_[^2], grandes quantidades de dados transmitida em um período muito pequeno, de maneira eficiente. Ao longo desse processo, destacaram-se aprendizados valiosos sobre a importância de adaptabilidade e ajustes contínuos diante das mudanças no ambiente tecnológico:
 
     -   **Arquitetar Além das Especificações:** É crucial projetar além das especificações originais e realizar ajustes rápidos e corajosos, especialmente quando o tráfego se aproxima dos limites previstos.
 
@@ -122,7 +123,7 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 -   **Segurança e privacidade:**
 
-    Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_. Ao adotar os padrões de segurança _FIDO_ e _WebAuthn_, a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
+    Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
 
     Em 2018, a opção de utilizar chaves de segurança foi introduzida como parte das opções de 2FA, inicialmente limitada ao [Twitter.com](https://twitter.com) e não disponível no aplicativo móvel. Além disso, exigia que as contas tivessem outra forma de 2FA habilitada.
 
@@ -136,6 +137,14 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de milhões de usuários em todo o mundo.
 
+## Nota de Rodapé
+
+[^1]: Técnica de comutação em redes de computadores utilizada em dispositivos como switches de rede para encaminhar pacotes de dados com a menor latência possível.
+[^2]: Eventos de curta duração e alta intensidade em uma rede de computadores, nos quais uma grande quantidade de dados é transmitida em um período muito pequeno.
+[^3]: Tipo de ataque cibernético que visa enganar as pessoas para que revelem informações confidenciais, como senhas, informações de cartão de crédito ou detalhes de login.
+[^4]: "Fast Identity Online", é uma aliança global de tecnologia que desenvolve padrões abertos para autenticação online mais segura e fácil de usar, buscando criar uma alternativa mais robusta e segura aos métodos tradicionais de autenticação baseados em senhas, como o nome de usuário e senha.
+[^5]: Padrão da Web que permite a autenticação forte sem senha para aplicativos e serviços online.
+
 ## Referências
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
@@ -144,4 +153,5 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
     -   [Stronger security for your Twitter account](https://blog.twitter.com/en_us/topics/product/2020/stronger-security-for-your-twitter-account)
 -   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
 
-_Nota: Este trabalho é apenas para fins educacionais_
+> [!NOTE]
+> Este trabalho é apenas para fins educacionais
