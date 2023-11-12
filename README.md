@@ -28,8 +28,12 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
     -   [Arquitetura em Alto Nível](#arquitetura-em-alto-nível)
     -   [Tecnologias e Componentes Principais](#tecnologias-e-componentes-principais)
     -   [Requisitos importantes](#requisitos-importantes)
-        -   [Escalabilidade:](#escalabilidade)
-        -   [Segurança e privacidade:](#segurança-e-privacidade)
+        -   [1. Escalabilidade:](#1-escalabilidade)
+        -   [2. Segurança e privacidade:](#2-segurança-e-privacidade)
+        -   [3. Processamento em tempo real](#3-processamento-em-tempo-real)
+            -   [Arquitetura antiga](#arquitetura-antiga)
+            -   [Nova arquitetura](#nova-arquitetura)
+            -   [Evolução da performance do sistema](#evolução-da-performance-do-sistema)
     -   [Conclusão](#conclusão)
     -   [Referências](#referências)
 
@@ -43,7 +47,7 @@ Este trabalho explora essa arquitetura em detalhes, destacando seus principais c
 
 Esta seção destaca aspectos que exercem influência significativa na construção e arquitetura do Twitter, tais como o nicho de mercado, volume de clientes e acessos, bem como os requisitos de segurança da aplicação.
 
-#### Nicho de Mercado
+### Nicho de Mercado
 
 O Twitter é uma plataforma única e amplamente reconhecida por sua natureza de microblogging, que permite aos usuários compartilhar pensamentos, notícias, opiniões e informações em mensagens curtas, chamadas de "tweets".
 
@@ -51,15 +55,15 @@ Uma das principais características do nicho do Twitter é a instantaneidade. A 
 
 A ênfase na instantaneidade e disseminação de informações em tempo real no Twitter requer uma arquitetura distribuída altamente escalável e algoritmos sofisticados de classificação de conteúdo para garantir a entrega rápida e relevância dos tweets.
 
-#### Número de Clientes
+### Número de Clientes
 
 O Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
 
-#### Segmentação Geográfica
+### Segmentação Geográfica
 
 Olhando para a segmentação geográfica da plataforma, o Estados Unidos domina o topo da lista com 23,69% do trafégo de dados realizado, em segundo lugar vem o Japão com 16,43%, seguido por Reino Unido com 5,67%, Brasil com 3,94% e Espanha com 3,23% do total.
 
-#### Dados Demográficos do Público
+### Dados Demográficos do Público
 
 Ao examinarmos a composição do público do Twitter, observamos:
 
@@ -67,7 +71,7 @@ Ao examinarmos a composição do público do Twitter, observamos:
 -   58,27% dos usuários tem de 18 a 34 anos de idade
 -   A parcela de idosos (65 anos ou mais) que utilizam a plataforma é bem pequena sendo apenas 4,81% do público total
 
-#### Requisitos de Segurança
+### Requisitos de Segurança
 
 O Twitter como uma rede social, possui dados e informações pessoais de seus usuários sobre sua responsabilidade, por isso, sua arquitetura deve garantir:
 
@@ -111,7 +115,9 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 ## Requisitos importantes
 
-### Escalabilidade:
+O desenvolvimento do Twitter, assim como qualquer plataforma de mídia social, implica uma complexidade de requisitos técnicos, experiência do usuário e aspectos comerciais. Nesta seção, serão descritos alguns dos requisitos importantes do Twitter.
+
+### 1. Escalabilidade:
 
 O data center inaugural do Twitter foi planejado com base em modelagens dos perfis de capacidade e tráfego do sistema conhecido na época. Ao longo de alguns anos, testemunhou-se uma notável expansão, com os data centers alcançando dimensões 400% maiores que o projeto original. Essa expansão destacou uma mudança substancial nas suposições iniciais que guiaram os primeiros projetos de rede, evidenciando a necessidade de ajustes contínuos diante da evolução dinâmica das demandas tecnológicas.
 
@@ -125,7 +131,7 @@ O Twitter enfrentou desafios significativos de capacidade e tráfego de dados de
 
 -   **Evitar Soluções Temporárias:** Soluções temporárias frequentemente resultam em dívidas tecnológicas. Em vez disso, buscar abordagens sustentáveis e de longo prazo é crucial para lidar eficazmente com desafios de tráfego e capacidade.
 
-### Segurança e privacidade:
+### 2. Segurança e privacidade:
 
 Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
 
@@ -137,6 +143,59 @@ No ano seguinte, em 2020, foram implementadas melhorias adicionais, incluindo o 
 
 Recentemente, a plataforma introduziu a opção de usar chaves de segurança como o único método 2FA, permitindo que os usuários inscrevam uma ou mais chaves como a única forma de 2FA em sua conta do Twitter, sem a necessidade de um método de backup, reconhecendo que nem todos têm ou desejam compartilhar um número de telefone para esse fim.
 
+### 3. Processamento em tempo real
+
+O Twitter processa aproximadamente 400 bilhões de eventos em tempo real diariamente, gerando petabytes (PB) de dados. Esses eventos provêm de diversas fontes, distribuídas em diferentes plataformas e sistemas de armazenamento.
+
+Para lidar com essa enorme quantidade de dados, a equipe da Twitter Data Platform desenvolveu várias ferramentas internas dedicadas ao processamento em lote, streaming, descoberta e consumo de dados. No entanto, o rápido crescimento dos dados continua a desafiar a infraestrutura de dados, mesmo com as ferramentas existentes.
+
+No que diz respeito ao pipeline de interação e engajamento, a equipe coleta e processa dados em tempo real de vários fluxos, combinando informações de tweets, interações do usuário e logs de servidores e clientes. Esses dados agregados são fundamentais para os serviços de receita de anúncios e produtos de dados do Twitter, fornecendo informações cruciais sobre métricas de impressão e engajamento. A busca eficiente e rápida desses dados de interação, com baixa latência e alta precisão em diferentes data centers, é crucial.
+
+Para atender a essas necessidades, o sistema foi dividido em componentes distintos, incluindo pré-processamento, agregação de eventos e entrega de dados. Essa abordagem permite uma análise robusta e eficaz, garantindo que consultas aos dados de interação sejam realizadas de maneira rápida e precisa em toda a infraestrutura do Twitter.
+
+#### Arquitetura antiga
+
+<div align="center">
+    <picture>
+        <img alt="Arquitetura lambda antiga" src="./imgs/old-architecture.png" />
+    </picture>
+    <p>Arquitetura lambda antiga</p>
+</div>
+
+A arquitetura anterior é baseada em um modelo lambda, que misturava processamento em lote e em tempo real para analisar dados. Dados de logs do Hadoop[^6] eram processados em lote e armazenados, enquanto dados em tempo real, como tweets recentes, eram armazenados de forma temporária. Isso permitia que o Twitter oferecesse um atendimento ao cliente mais rápido, analisando eventos em tempo real, como interações de clientes e tweets.
+
+No entanto, essa estratégia encontra desafios ao lidar com grandes quantidades de dados em tempo real, o que pode levar à perda de informações e imprecisões nos resultados. Esses problemas se agravam, principalmente, quando há uma grande quantidade de eventos que precisam ser processados em curtos períodos, sobrecarregando os sistemas.
+
+Quando o sistema fica sobrecarregado, algumas partes dele podem ficar mais lentas, causando atrasos e, eventualmente, levando à perda de dados. Para resolver esse problema, a plataforma propos uma nova abordagem, em que os dados são processados continuamente em tempo real, eliminando a necessidade de processamento em lote. Isso tornaria o sistema mais eficiente, reduzindo a latência (tempo de resposta) e evitando perdas de dados.
+
+Essa mudança na arquitetura busca melhorar a precisão das informações fornecidas aos usuários e simplificar o sistema, tornando-o mais ágil e eficaz.
+
+#### Nova arquitetura
+
+<div align="center">
+    <picture>
+        <img alt="Nova arquitetura em Kafka e Dataflow" src="./imgs/new-architecture.png" />
+    </picture>
+    <p>Nova arquitetura em Kafka e Dataflow</p>
+</div>
+
+A nova arquitetura é baseada nos serviços do Twitter Data Center e no Google Cloud Platform. Os eventos como tweets são processados localmente nos servidores do Twitter e também na nuvem usando os serviços do Google.
+
+No processo local, foi criado sistemas para transformar e encaminhar eventos, garantindo que a informação seja consistente. Esses eventos são então enviados para o Google Cloud, onde passam por um processo de remoção de duplicatas e agregação em tempo real. Os dados resultantes são armazenados no BigTable[^7].
+
+Essa nova abordagem economiza custos e melhora a precisão do processamento em tempo real, eliminando a necessidade de manter diferentes formas de organização de dados em locais diferentes. Em termos mais leigos, o Twitter agora consegue lidar melhor com a enorme quantidade de informações que recebe a cada segundo, garantindo que o que você vê seja preciso, rápido e eficiente.
+
+#### Evolução da performance do sistema
+
+<div align="center">
+    <picture>
+        <img alt="Comparação de desempenho do sistema para arquiteturas antiga e nova" src="./imgs/evaluation-architectures.png" />
+    </picture>
+    <p>Comparação de desempenho do sistema para arquiteturas antiga e nova</p>
+</div>
+
+A nova arquitetura apresenta vantagens significativas em relação à antiga. Notavelmente, oferece menor latência em comparação com a arquitetura anterior e proporciona maior rendimento. Além disso, destaca-se por lidar de maneira eficiente com a contagem de eventos atrasados, garantindo que nenhum evento seja perdido durante a agregação em tempo real. Uma característica notável é a ausência de componentes em lote na nova arquitetura, simplificando o design e reduzindo os custos computacionais que eram presentes na arquitetura anterior.
+
 ## Conclusão
 
 Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de milhões de usuários em todo o mundo.
@@ -147,10 +206,13 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
     -   [The Infrastructure Behind Twitter: Scale](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2017/the-infrastructure-behind-twitter-scale)
     -   [Manhattan Database for Twitter Scale](https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale)
     -   [Stronger security for your Twitter account](https://blog.twitter.com/en_us/topics/product/2020/stronger-security-for-your-twitter-account)
+    -   [Processing billions of events in real time at Twitter](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-)
 -   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
 
 [^1]: Técnica de comutação em redes de computadores utilizada em dispositivos como switches de rede para encaminhar pacotes de dados com a menor latência possível.
 [^2]: Eventos de curta duração e alta intensidade em uma rede de computadores, nos quais uma grande quantidade de dados é transmitida em um período muito pequeno.
 [^3]: Tipo de ataque cibernético que visa enganar as pessoas para que revelem informações confidenciais, como senhas, informações de cartão de crédito ou detalhes de login.
-[^4]: "Fast Identity Online", é uma aliança global de tecnologia que desenvolve padrões abertos para autenticação online mais segura e fácil de usar, buscando criar uma alternativa mais robusta e segura aos métodos tradicionais de autenticação baseados em senhas, como o nome de usuário e senha.
+[^4]: _"Fast Identity Online"_, é uma aliança global de tecnologia que desenvolve padrões abertos para autenticação online mais segura e fácil de usar, buscando criar uma alternativa mais robusta e segura aos métodos tradicionais de autenticação baseados em senhas, como o nome de usuário e senha.
 [^5]: Padrão da Web que permite a autenticação forte sem senha para aplicativos e serviços online.
+[^6]: Framework de software de _open-source_ projetado para processamento distribuído de grandes conjuntos de dados em _clusters_ de computadores.
+[^7]: Banco de dados NoSQL desenvolvido pela Google altamente escalável e projetado para lidar com grandes volumes de dados e operações de leitura e gravação em tempo real.
