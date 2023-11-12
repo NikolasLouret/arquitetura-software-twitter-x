@@ -2,6 +2,9 @@
 
 Este repositório contém informações e análises detalhadas sobre a arquitetura do Twitter. O objetivo deste trabalho é fornecer uma visão geral abrangente da infraestrutura, tecnologias e desafios enfrentados pelo Twitter em sua busca para fornecer uma plataforma de mídia social escalável e confiável para bilhões de usuários em todo o mundo.
 
+> [!NOTE]
+> Este trabalho é apenas para fins educacionais
+
 ## Integrantes
 
 -   [Frederico dos Santos](https://www.ofrederico.com)
@@ -26,7 +29,6 @@ Este repositório contém informações e análises detalhadas sobre a arquitetu
     -   [Tecnologias e Componentes Principais](#tecnologias-e-componentes-principais)
     -   [Requisitos importantes](#requisitos-importantes)
     -   [Conclusão](#conclusão)
-    -   [Nota de Rodapé](#nota-de-rodapé)
     -   [Referências](#referências)
 
 ## Introdução
@@ -137,14 +139,6 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de milhões de usuários em todo o mundo.
 
-## Nota de Rodapé
-
-[^1]: Técnica de comutação em redes de computadores utilizada em dispositivos como switches de rede para encaminhar pacotes de dados com a menor latência possível.
-[^2]: Eventos de curta duração e alta intensidade em uma rede de computadores, nos quais uma grande quantidade de dados é transmitida em um período muito pequeno.
-[^3]: Tipo de ataque cibernético que visa enganar as pessoas para que revelem informações confidenciais, como senhas, informações de cartão de crédito ou detalhes de login.
-[^4]: "Fast Identity Online", é uma aliança global de tecnologia que desenvolve padrões abertos para autenticação online mais segura e fácil de usar, buscando criar uma alternativa mais robusta e segura aos métodos tradicionais de autenticação baseados em senhas, como o nome de usuário e senha.
-[^5]: Padrão da Web que permite a autenticação forte sem senha para aplicativos e serviços online.
-
 ## Referências
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
@@ -153,5 +147,8 @@ Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacand
     -   [Stronger security for your Twitter account](https://blog.twitter.com/en_us/topics/product/2020/stronger-security-for-your-twitter-account)
 -   [Similar Web](https://www.similarweb.com/pt/website/twitter.com/#geography)
 
-> [!NOTE]
-> Este trabalho é apenas para fins educacionais
+[^1]: Técnica de comutação em redes de computadores utilizada em dispositivos como switches de rede para encaminhar pacotes de dados com a menor latência possível.
+[^2]: Eventos de curta duração e alta intensidade em uma rede de computadores, nos quais uma grande quantidade de dados é transmitida em um período muito pequeno.
+[^3]: Tipo de ataque cibernético que visa enganar as pessoas para que revelem informações confidenciais, como senhas, informações de cartão de crédito ou detalhes de login.
+[^4]: "Fast Identity Online", é uma aliança global de tecnologia que desenvolve padrões abertos para autenticação online mais segura e fácil de usar, buscando criar uma alternativa mais robusta e segura aos métodos tradicionais de autenticação baseados em senhas, como o nome de usuário e senha.
+[^5]: Padrão da Web que permite a autenticação forte sem senha para aplicativos e serviços online.
