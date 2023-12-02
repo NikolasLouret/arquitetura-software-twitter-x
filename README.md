@@ -113,7 +113,7 @@ A arquitetura do Twitter é composta por vários componentes interconectados que
 -   **SQL**: Inclui MySQL, PostgreSQL e Vertica. MySQL/PosgreSQL são usados ​​onde é necessário forte consistência, gerenciando campanhas publicitárias, troca de anúncios, bem como ferramentas internas. Vertica é um armazenamento de colunas frequentemente usado como back-end para o Tableau(usados para gerenciamento dos dados).
 -   **Hadoop**: Um framework de computação em nuvem usado para processar grandes conjuntos de dados.
 
-2. Mais sobre o Hadoop
+2. Mais sobre o Hadoop:
 
    2.1 Características
    
