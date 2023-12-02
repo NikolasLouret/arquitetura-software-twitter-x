@@ -103,7 +103,7 @@ A arquitetura do Twitter é composta por vários componentes interconectados que
 
 ## Tecnologias e Componentes Principais
 
-Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
+1. Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 
 -   **Manhattan**: O back-end para tweets, mensagens diretas, contas do Twitter e muito mais.
 -   **Cache**: Clusters Redis e Memcache: armazenando em cache os usuários, cronogramas, tweets e muito mais.
@@ -113,6 +113,18 @@ Alguns dos componentes mais importantes da arquitetura do Twitter incluem:
 -   **SQL**: Inclui MySQL, PostgreSQL e Vertica. MySQL/PosgreSQL são usados ​​onde é necessário forte consistência, gerenciando campanhas publicitárias, troca de anúncios, bem como ferramentas internas. Vertica é um armazenamento de colunas frequentemente usado como back-end para o Tableau(usados para gerenciamento dos dados).
 -   **Hadoop**: Um framework de computação em nuvem usado para processar grandes conjuntos de dados.
 
+2. Mais sobre o Hadoop
+
+   2.1 Características
+   
+- Uma biblioteca de software que permite o processamento distribuído de grandes conjuntos de dados em clusters de computadores usando modelos de programação simples.
+- Projetado para escalar desde servidores únicos até milhares de máquinas, cada uma oferecendo computação e armazenamento locais.
+- Projetado para detectar e tratar falhas na camada de aplicação
+
+  2.2 Como é utilizado
+
+O Hadoop é o back-end do pipeline de log baseado em Scribe, a fim de resolver limitações como a falta de limitação de taxa de clientes seletivos para agregadores, falta de garantia de entrega para categorias e para resolver problemas de corrupção de memória. O Hadoop lida com mais de um trilhão de mensagens por dia e todas elas são processadas em mais de 500 categorias, consolidadas e copiadas seletivamente em todos os clusters.
+  
 ## Requisitos importantes
 
 O desenvolvimento do Twitter, assim como qualquer plataforma de mídia social, implica uma complexidade de requisitos técnicos, experiência do usuário e aspectos comerciais. Nesta seção, serão descritos alguns dos requisitos importantes do Twitter.
