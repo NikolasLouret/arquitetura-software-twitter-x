@@ -123,7 +123,7 @@ A arquitetura do Twitter é composta por vários componentes interconectados que
 
   2.2 Como é utilizado
 
-O Hadoop é o back-end do pipeline de log baseado em Scribe, a fim de resolver limitações como a falta de limitação de taxa de clientes seletivos para agregadores, falta de garantia de entrega para categorias e para resolver problemas de corrupção de memória. O Hadoop lida com mais de um trilhão de mensagens por dia e todas elas são processadas em mais de 500 categorias, consolidadas e copiadas seletivamente em todos os clusters.
+O Hadoop é o back-end do pipeline de log baseado em Scribe, a fim de resolver problemas como a falta de limitação de taxa de clientes seletivos para agregadores, falta de garantia de entrega para categorias e para resolver problemas de corrupção de memória. O Hadoop lida com mais de um trilhão de mensagens por dia e todas elas são processadas em mais de 500 categorias, consolidadas e copiadas seletivamente em todos os clusters.
   
 ## Requisitos importantes
 
