@@ -57,11 +57,11 @@ A ênfase na instantaneidade e disseminação de informações em tempo real no 
 
 ### Número de Clientes
 
-O Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
+Segundo o "Similarweb" o Twitter ocupa a terceira posição no ranking das redes sociais mais acessadas no mundo, registrando um total de 5,8 bilhões de visitas no último mês. Essa classificação é superada apenas pelo Instagram, em segundo lugar, com 6,4 bilhões de acessos, e pelo Facebook, na liderança, com 16,3 bilhões de acessos. A duração média de cada visita por usuário na plataforma Twitter é de 10 minutos e 37 segundos.
 
 ### Segmentação Geográfica
 
-Olhando para a segmentação geográfica da plataforma, o Estados Unidos domina o topo da lista com 23,69% do trafégo de dados realizado, em segundo lugar vem o Japão com 16,43%, seguido por Reino Unido com 5,67%, Brasil com 3,94% e Espanha com 3,23% do total.
+Olhando para a segmentação geográfica da plataforma, o "Similarweb" aponta que o Estados Unidos domina o topo da lista com 23,69% do trafégo de dados realizado, em segundo lugar vem o Japão com 16,43%, seguido por Reino Unido com 5,67%, Brasil com 3,94% e Espanha com 3,23% do total.
 
 ### Dados Demográficos do Público
 
@@ -123,7 +123,7 @@ A arquitetura do Twitter é composta por vários componentes interconectados que
 
   2.2 Como é utilizado
 
-O Hadoop é o back-end do pipeline de log baseado em Scribe, a fim de resolver problemas como a falta de limitação de taxa de clientes seletivos para agregadores, falta de garantia de entrega para categorias e para resolver problemas de corrupção de memória. O Hadoop lida com mais de um trilhão de mensagens por dia e todas elas são processadas em mais de 500 categorias, consolidadas e copiadas seletivamente em todos os clusters.
+Segundo a postagem "The Infrastructure Behind Twitter: Scale", retirado do blog de engenharia do Twitter, Hadoop é o back-end do pipeline de log baseado em Scribe, a fim de resolver problemas como a falta de limitação de taxa de clientes seletivos para agregadores, falta de garantia de entrega para categorias e para resolver problemas de corrupção de memória. O Hadoop lida com mais de um trilhão de mensagens por dia e todas elas são processadas em mais de 500 categorias, consolidadas e copiadas seletivamente em todos os clusters.
   
 ## Requisitos importantes
 
@@ -131,7 +131,7 @@ O desenvolvimento do Twitter, assim como qualquer plataforma de mídia social, i
 
 ### 1. Escalabilidade:
 
-O data center inaugural do Twitter foi planejado com base em modelagens dos perfis de capacidade e tráfego do sistema conhecido na época. Ao longo de alguns anos, testemunhou-se uma notável expansão, com os data centers alcançando dimensões 400% maiores que o projeto original. Essa expansão destacou uma mudança substancial nas suposições iniciais que guiaram os primeiros projetos de rede, evidenciando a necessidade de ajustes contínuos diante da evolução dinâmica das demandas tecnológicas.
+Com base na postagem "The Infrastructure Behind Twitter: Scale", presente no blog de engenharia do Twitter, o data center inaugural do Twitter foi planejado com base em modelagens dos perfis de capacidade e tráfego do sistema conhecido na época. Ao longo de alguns anos, testemunhou-se uma notável expansão, com os data centers alcançando dimensões 400% maiores que o projeto original. Essa expansão destacou uma mudança substancial nas suposições iniciais que guiaram os primeiros projetos de rede, evidenciando a necessidade de ajustes contínuos diante da evolução dinâmica das demandas tecnológicas.
 
 O rápido crescimento do tráfego de dados ressalta a importância de uma arquitetura altamente escalável. Em vez de depender de migrações volumosas e complexas, é crucial construir uma estrutura que permita a adição incremental de capacidade. Isso assegura uma resposta ágil às demandas crescentes, evitando reconfigurações massivas de data centers.
 
@@ -145,7 +145,7 @@ O Twitter enfrentou desafios significativos de capacidade e tráfego de dados de
 
 ### 2. Segurança e privacidade:
 
-Para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
+Segundo o blog Stronger security for your Twitter account, para garantir a segurança dos usuários no Twitter, a plataforma implementou mecanismos rigorosos de autenticação, com destaque para a utilização de autenticação de dois fatores (2FA) em conjunto com chaves de segurança. As chaves de segurança representam a camada mais robusta de proteção para as contas do Twitter, incorporando salvaguardas integradas que impedem o acesso mesmo em caso de uso em sites de _phishing_[^3]. Ao adotar os padrões de segurança _FIDO_[^4] e _WebAuthn_[^5], a carga de proteção contra tentativas de _phishing_ é transferida do usuário para um dispositivo de hardware. Essas chaves têm a capacidade de distinguir sites legítimos de maliciosos, bloqueando tentativas de _phishing_ que métodos tradicionais, como SMS ou códigos de verificação, não seriam capazes de conter.
 
 Em 2018, a opção de utilizar chaves de segurança foi introduzida como parte das opções de 2FA, inicialmente limitada ao [Twitter.com](https://twitter.com) e não disponível no aplicativo móvel. Além disso, exigia que as contas tivessem outra forma de 2FA habilitada.
 
@@ -157,7 +157,7 @@ Recentemente, a plataforma introduziu a opção de usar chaves de segurança com
 
 ### 3. Processamento em tempo real
 
-O Twitter processa aproximadamente 400 bilhões de eventos em tempo real diariamente, gerando petabytes (PB) de dados. Esses eventos provêm de diversas fontes, distribuídas em diferentes plataformas e sistemas de armazenamento.
+Segundo o blog Processing billions of events in real time at Twitter, o Twitter processa aproximadamente 400 bilhões de eventos em tempo real diariamente, gerando petabytes (PB) de dados. Esses eventos provêm de diversas fontes, distribuídas em diferentes plataformas e sistemas de armazenamento.
 
 Para lidar com essa enorme quantidade de dados, a equipe da Twitter Data Platform desenvolveu várias ferramentas internas dedicadas ao processamento em lote, streaming, descoberta e consumo de dados. No entanto, o rápido crescimento dos dados continua a desafiar a infraestrutura de dados, mesmo com as ferramentas existentes.
 
