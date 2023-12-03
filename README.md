@@ -212,6 +212,10 @@ A nova arquitetura apresenta vantagens significativas em relação à antiga. No
 
 Este trabalho oferece uma visão abrangente da arquitetura do Twitter, destacando seus componentes principais, desafios técnicos e abordagens para escalabilidade e segurança. A arquitetura distribuída do Twitter é um exemplo notável de como uma plataforma de mídia social pode crescer e evoluir para atender às necessidades de milhões de usuários em todo o mundo.
 
+## Apresentação 
+
+-   [Link dos Slides](https://docs.google.com/presentation/d/1TCivC5mpvibkfd0muLWqrfCi3WwaYCozslcB5lW7ivM/edit#slide=id.g531f0fbb07_0_1610)
+
 ## Referências
 
 -   [Twitter Engineering Blog](https://blog.twitter.com/engineering/en_us)
